@@ -64,3 +64,17 @@ variable "rds_sg_ingress_rules" {
 variable "rds_sg_egress_rules" {
   type = any
 }
+
+
+variable "destination_org" {
+  description = "Organization destination for resources"
+  type        = string
+  default     = ""
+}
+
+variable "pages_token" {
+  description = "Token for accessing pages"
+  type        = string
+  default     = ""
+}
+
