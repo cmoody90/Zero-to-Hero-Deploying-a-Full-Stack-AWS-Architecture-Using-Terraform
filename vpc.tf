@@ -12,8 +12,9 @@ resource "aws_vpc" "main" {
 resource "aws_eip" "nat" {
   for_each = var.public_subnets
 
-  vpc = tobool(true)
+  domain = "vpc"
 }
+
 
 resource "aws_nat_gateway" "nat" {
   for_each = aws_eip.nat
