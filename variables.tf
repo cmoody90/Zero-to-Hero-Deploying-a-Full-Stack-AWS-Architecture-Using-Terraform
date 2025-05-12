@@ -3,9 +3,15 @@ variable "env" {
 }
 ##VPC
 variable "vpc_conf" {
-  type    = map(any)
-  default = {}
+  type = map(any)
+  default = {
+    cidr                 = "10.0.0.0/16"
+    enable_dns_support   = true
+    enable_dns_hostnames = true
+    instance_tenancy     = "default"
+  }
 }
+
 
 variable "region" {
   description = "The AWS region where resources will be created."
@@ -53,9 +59,12 @@ variable "ec2_sg_egress_rules" {
 }
 
 variable "rds_conf" {
-  type    = any
-  default = {}
+  type = map(any)
+  default = {
+    multi_az = false
+  }
 }
+
 
 #rds
 variable "rds_sg_ingress_rules" {
