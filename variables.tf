@@ -61,9 +61,20 @@ variable "ec2_sg_egress_rules" {
 variable "rds_conf" {
   type = map(any)
   default = {
-    multi_az = false
+    allocated_storage       = 20
+    storage_type            = "gp2"
+    engine                  = "postgres"
+    engine_version          = "13.3"
+    instance_class          = "db.t3.micro"
+    username                = "admin"
+    password                = "password123"  # Not recommended to hardcode in production
+    storage_encrypted       = true
+    publicly_accessible     = false
+    backup_retention_period = 7
+    multi_az                = false
   }
 }
+
 
 
 #rds
